@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const selected = comboBox.value;
       if (selected === '1') {
         heading2.textContent = 'Guess the number';
-        paragraph.innerHTML = 'Every game creator needs to start somewhere, right? Enjoy a simple guess the number game! <a href="guessnum.zip">Download it here</a>';
+        paragraph.innerHTML = 'Every game creator needs to start somewhere, right? Enjoy a simple guess the number game! <a href="https://www.dropbox.com/scl/fi/3yuxm9yxdbk493t8xe5lh/guesnumjs.rar?rlkey=ttnulzurn8z14lhyfvzuxbwv7&dl=1">Download it here</a>';
       } else {
         heading2.textContent = 'Welcome to our games page!';
         paragraph.textContent = 'We currently only have one game to download, but no worries! We will create more content soon!';
