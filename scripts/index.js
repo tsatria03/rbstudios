@@ -1,10 +1,15 @@
-    // JavaScript to set the current year in the copyright notice
-    const currentYear = new Date().getFullYear();
-    document.getElementById("copyrightYear").textContent = currentYear;
+// Set current year in footer
+document.addEventListener("DOMContentLoaded", () => {
+  const currentYear = new Date().getFullYear();
+  const copyright = document.getElementById("copyrightYear");
+  if (copyright) {
+    copyright.textContent = currentYear;
+  }
 
-    // JavaScript countdown timer
-    const christmasDate = new Date("December 25, " + currentYear + " 00:00:00").getTime();
-    const countdownElement = document.getElementById("countdown");
+  // Christmas countdown
+  const countdownElement = document.getElementById("countdown");
+  if (countdownElement) {
+    const christmasDate = new Date(`December 25, ${currentYear} 00:00:00`).getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -27,31 +32,43 @@
       }
     };
 
-    // Update the countdown every second
     setInterval(updateCountdown, 1000);
-
-    // Initial update
     updateCountdown();
+  }
 
-    (function () {
-      const comboBox = document.getElementById('combo-box');
-      const heading2 = document.getElementById('heading2');
-      const paragraph = document.getElementById('paragraph');
+  // Combo box handler (for games page)
+  const comboBox = document.getElementById('combo-box');
+  const heading2 = document.getElementById('heading2');
+  const paragraph = document.getElementById('paragraph');
 
-      comboBox.addEventListener('change', function () {
-        const selectedOption = comboBox.options[comboBox.selectedIndex];
-        const selectedOptionValue = selectedOption.value;
+  if (comboBox && heading2 && paragraph) {
+    comboBox.addEventListener('change', () => {
+      const selected = comboBox.value;
+      if (selected === '1') {
+        heading2.textContent = 'Guess the number';
+        paragraph.innerHTML = 'Every game creator needs to start somewhere, right? Enjoy a simple guess the number game! <a href="guessnum.zip">Download it here</a>';
+      } else {
+        heading2.textContent = 'Welcome to our games page!';
+        paragraph.textContent = 'We currently only have one game to download, but no worries! We will create more content soon!';
+      }
+    });
+  }
 
-        switch (selectedOptionValue) {
-          case '1':
-            heading2.textContent = 'Guess the number';
-            paragraph.innerHTML = 'Every game creator needs to start somewhere, right? Enjoy a simple guess the number game! <a href="guessnum.zip">Download it here</a>';
-            break;
-          default:
-            heading2.textContent = 'Welcome to our games page!';
-            paragraph.textContent = 'We currently only have one game to download, but no worries! We will create more content soon!';
-            break;
-        }
-      });
+  // Highlight current page in navigation
+  highlightCurrentPage();
+});
 
-    })();
+// Function to mark the current page in <nav>
+function highlightCurrentPage() {
+  const currentPath = location.pathname.replace(/\/$/, ""); // Normalize
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname.replace(/\/$/, "");
+    const isHomePage = currentPath.endsWith("index.html") && linkPath.endsWith("index.html");
+    if (currentPath === linkPath || isHomePage) {
+      link.setAttribute("aria-current", "page");
+      link.style.fontWeight = "bold"; // Optional: highlight visually
+    }
+  });
+}

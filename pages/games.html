@@ -1,30 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Our games | Reality Breaker Studios!</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games | Reality Breaker Studios</title>
 </head>
+
 <body>
-  <h2>Site navigation</h2>
-  <div role="page" aria-label="navigation">
-    <ul>
-<li><a href="pages/games.html">Check out our games!</a></li>
-<li><a href="pages/about.html">About us</a></li>
-<li><a href="pages/contact.html">Contact us!</a></li>
-<li><a href="pages/events.html">events</a></li>
-<li><a href="pages/socials.html">socials</a></li>
-    </ul>
-  </div>
-  <br />
-  <h2>Games</h2>
-  <select id="combo-box">
-    <option value="">Select a game to download</option>
-    <option value="1">Guess the number</option>
-  </select>
+  <header>
+    <h1>Site navigation</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="games.html">games</a></li>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="events.html">events</a></li>
+        <li><a href="socials.html">socials</a></li>
+      </ul>
+    </nav>
+  </header>
 
+  <main>
+    <h2>Games</h2>
 
-  <h2 id="heading2">Welcome to our games page!</h2>
-  <p id="paragraph">We currently only have one game to download, but no worries! We will create more content soon!</p>
+    <select id="combo-box">
+      <option value="">Select a game to download</option>
+      <option value="1">Guess the number</option>
+    </select>
+
+    <h2 id="heading2">Welcome to our games page!</h2>
+    <p id="paragraph">We currently only have one game to download, but no worries! We will create more content soon!</p>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="copyrightYear"></span> Reality Breaker Studios</p>
+  </footer>
 
   <script src="../scripts/index.js" defer></script>
 </body>
